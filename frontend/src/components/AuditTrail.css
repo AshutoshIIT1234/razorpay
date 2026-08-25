@@ -1,0 +1,114 @@
+.audit-container {
+  padding: 1.5rem;
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.audit-empty {
+  padding: 2rem;
+  text-align: center;
+  color: #a0aec0;
+  font-style: italic;
+}
+
+.session-id {
+  font-size: 0.8rem;
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+  word-break: break-all;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 7px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.timeline-icon {
+  background: #1a202c;
+  border-radius: 50%;
+  padding: 2px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.text-green-500 { color: #48bb78; }
+.text-red-500 { color: #f56565; }
+.text-blue-500 { color: #4299e1; }
+.text-yellow-500 { color: #ecc94b; }
+
+.timeline-content {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.timestamp {
+  font-size: 0.75rem;
+  color: #a0aec0;
+}
+
+.reasoning {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #e2e8f0;
+}
+
+.input-data {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  overflow-x: auto;
+  color: #cbd5e0;
+  margin-bottom: 0.5rem;
+}
+
+.outcome {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.outcome-success { background: rgba(72, 187, 120, 0.2); color: #48bb78; }
+.outcome-rejected { background: rgba(245, 101, 101, 0.2); color: #f56565; }
+.outcome-pending { background: rgba(66, 153, 225, 0.2); color: #4299e1; }
+.outcome-pending_approval { background: rgba(236, 201, 75, 0.2); color: #ecc94b; }
