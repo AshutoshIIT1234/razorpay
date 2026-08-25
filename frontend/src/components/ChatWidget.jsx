@@ -3,7 +3,8 @@ import { MessageSquare, X, Send, Bot } from 'lucide-react';
 import axios from 'axios';
 import './ChatWidget.css';
 
-const API_URL = 'http://localhost:3000/api/agent'; // Assuming backend is on port 3000
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+const API_URL = `${BACKEND_URL}/api/agent`; // Assuming backend is on port 3000
 
 export default function ChatWidget({ onSessionChange, initialQuery, onAddToCart, onRemoveFromCart, onUpdateCartQty, onClearCart, cart }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -98,7 +99,7 @@ export default function ChatWidget({ onSessionChange, initialQuery, onAddToCart,
 
   const handlePayment = async (orderData) => {
     try {
-      const keyRes = await axios.get('http://localhost:3000/api/orders/key');
+      const keyRes = await axios.get(`${BACKEND_URL}/api/orders/key`);
       const keyId = keyRes.data.key_id;
 
       const options = {
@@ -110,7 +111,7 @@ export default function ChatWidget({ onSessionChange, initialQuery, onAddToCart,
         order_id: orderData.order_id,
         handler: async function (response) {
           try {
-            const verifyRes = await axios.post('http://localhost:3000/api/payments/verify', {
+            const verifyRes = await axios.post(`${BACKEND_URL}/api/payments/verify`, {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_signature: response.razorpay_signature

@@ -15,6 +15,8 @@ const IMAGE_MAP = {
   'Cyberdeck Portable Terminal': '/cyberdeck_1787554639958.png',
 };
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+
 function App() {
   const [products, setProducts] = useState([]);
   const [sessionId, setSessionId] = useState(null);
@@ -35,7 +37,7 @@ function App() {
   useEffect(() => {
     const fetchCatalog = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/catalog');
+        const response = await axios.get(`${BACKEND_URL}/api/catalog`);
         setProducts(response.data.data);
       } catch (error) {
         console.error('Failed to fetch catalog', error);

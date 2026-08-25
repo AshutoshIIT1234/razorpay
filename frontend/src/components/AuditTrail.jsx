@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Activity, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import './AuditTrail.css';
 
-const API_URL = 'http://localhost:3000/api/audit';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+const API_URL = `${BACKEND_URL}/api/audit`;
 
 export default function AuditTrail({ sessionId }) {
   const [logs, setLogs] = useState([]);

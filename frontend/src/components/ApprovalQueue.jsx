@@ -3,7 +3,8 @@ import axios from 'axios';
 import { Check, X, ShieldAlert } from 'lucide-react';
 import './ApprovalQueue.css';
 
-const API_URL = 'http://localhost:3000/api/approvals';
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+const API_URL = `${BACKEND_URL}/api/approvals`;
 
 export default function ApprovalQueue() {
   const [approvals, setApprovals] = useState([]);
